@@ -1,0 +1,90 @@
+// gospel-of-john (français) — l'Évangile de Jean complet, monté en livret de poche, avec couvertures. Chaque page
+// est A6 (105 x 148 mm); \arrange booklet impose les pages deux par deux, dans l'ordre de pliage d'un cahier
+// piqué, sur des feuilles A5 paysage (210 x 148 mm). Imprimez en recto-verso, pliez chaque feuille en son milieu,
+// emboîtez-les et agrafez : les pages se lisent dans l'ordre — un livret de poche A6 plié depuis du papier A5.
+//
+// Une couverture encadrée, un colophon, le texte de Jean 1–21, et une quatrième de couverture à QR-code. Le texte
+// vient de la Bible Louis Segond 1910 (domaine public). \usfmintro 0 laisse de côté l'introduction de l'édition
+// source : seul le texte de l'Écriture est composé, comme dans le livret anglais.
+
+\use{usfm}
+
+\usehyphenation{fr}
+
+\geometry paper:a6 top:10mm left:10mm right:10mm bottom:16mm footskip:5mm
+\arrange booklet
+
+\set usfmintro {0}
+
+// La couverture et le colophon ne portent pas de numéro de folio : un \footline vide masque le numéro de page que
+// document compose par défaut. Il est rétabli, et le compte remis à 1, à la première page de l'Écriture.
+\def footline {}
+
+// ---- Première de couverture ----------------------------------------------------
+{
+\color{#4E6E8C}
+\vbox to:345 {
+  \vskip 17pt
+  \vfil
+  \centerline{\fbox{\vbox to:318 {
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\font lmroman 13 regular \textsc{Évangile selon}}
+    \vskip 16pt
+    \makebox[197pt][c]{\font lmroman 64 regular Jean}
+    \vskip 12pt
+    \makebox[197pt][c]{\hrule width:70 ascent:1.4}
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font lmroman 10 italic mais ces choses ont été écrites afin que vous croyiez que Jésus est le Christ, le Fils de Dieu, et qu’en croyant vous ayez la vie en son nom.}}
+    \vskip 8pt
+    \makebox[197pt][c]{\color{#333333}\font lmroman 9 regular \textsc{Jean 20:31}}
+    \vfil
+  }}}
+  \vfil
+}
+}
+\eject
+
+// ---- Deuxième de couverture / colophon -----------------------------------------
+{
+\vbox to:345 {
+  \vfil
+  \centerline{\font lmroman 10 regular Texte biblique de la}
+  \smallskip
+  \centerline{\font lmroman 10 regular \textsc{Bible Louis Segond 1910}}
+  \smallskip
+  \centerline{\font lmroman 9 italic qui est dans le domaine public.}
+  \vskip 24pt
+  \centerline{\color{#4E6E8C}\hrule width:50 ascent:0.8}
+  \vskip 24pt
+  \centerline{\font lmroman 10 regular christianevangelism.media}
+  \vskip 40pt
+}
+}
+\eject
+
+// ---- Le texte de l'Évangile (folios numérotés 1–…) -----------------------------
+\set pageno {1}
+\def footline {\hss\font lmroman 10 regular \the\pageno\hss}
+\usfm{fr.usfm}
+\vfill\eject
+
+// Plus de numéro de folio pour la quatrième de couverture.
+\def footline {}
+
+// ---- Quatrième de couverture ---------------------------------------------------
+{
+\vskip 40pt
+\centerline{\color{#4E6E8C}\hrule width:60 ascent:1}
+\vskip 16pt
+\centerline{\color{#333333}\font lmroman 13 regular \textsc{Lire · Regarder · Partager}}
+\vskip 22pt
+{\set leftskip {0 plus 1fil}\set rightskip {0 plus 1fil}\set parfillskip {0}\set parindent {0}\noindent\qrcode[cell:3pt quiet:4]{https://christianevangelism.media}\par}
+\vskip 22pt
+\centerline{\color{#4E6E8C}\font lmroman 13 regular christianevangelism.media}
+\vskip 26pt
+\centerline{\color{#333333}\font lmroman 10 italic “Viens et vois.”}
+\smallskip
+\centerline{\color{#333333}\font lmroman 9 regular \textsc{Jean 1:46}}
+\vfill
+}
+\eject

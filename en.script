@@ -7,7 +7,7 @@
 // A framed front cover, a colophon, the full text of John 1–21, and a QR-code back cover. \arrange booklet pads the
 // run to a whole number of four-page sheets, so the final sheet may carry one or two blank pages after the back cover.
 //
-// The two-chapter usfm-booklet.script is the fast layout-test harness; this script renders the whole book from john.usfm.
+// The two-chapter usfm-booklet.script is the fast layout-test harness; this script renders the whole book from en.usfm.
 
 \use{usfm}
 
@@ -76,7 +76,7 @@
 // reads 1 rather than 3.
 \set pageno {1}
 \def footline {\hss\font lmroman 10 regular \the\pageno\hss}
-\usfm{john.usfm}
+\usfm{en.usfm}
 \vfill\eject
 
 // Back to no folio number for the back cover.
