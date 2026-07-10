@@ -1,5 +1,5 @@
 // gospel-of-john (French) — the complete Gospel of John set as a pocket booklet, with covers. Each page is A6
-// (105 x 148 mm); \arrange booklet imposes the pages two-up, in saddle-stitch folding order, onto A5-landscape
+// (105 x 148 mm); \arrange two-up-booklet imposes the pages two-up, in saddle-stitch folding order, onto A5-landscape
 // (210 x 148 mm) sheets. Print double-sided, fold each sheet down the middle, nest and staple them, and the pages
 // read in order — an A6 pocket booklet folded from A5 paper.
 //
@@ -12,7 +12,7 @@
 \usehyphenation{fr}
 
 \geometry paper:a6 top:10mm left:10mm right:10mm bottom:16mm footskip:5mm
-\arrange booklet
+\arrange two-up-booklet
 
 \set usfmintro {0}
 

@@ -15,9 +15,10 @@ middle, nest and staple, and the pages read in order.
 | `en.script`       | Berean Standard Bible (English)   | `en.pdf` |
 | `fr.script`       | Louis Segond 1910 (French)        | `fr.pdf` |
 | `es.script`       | Biblia Libre Latinoamericano (Spanish) | `es.pdf` |
+| `pt.script`       | Bíblia Portuguesa Mundial (Portuguese) | `pt.pdf` |
 
-All three Scripture texts are in the public domain. The book text lives in the
-USFM files `en.usfm`, `fr.usfm`, and `es.usfm`; the `.script` files add the
+All four Scripture texts are in the public domain. The book text lives in the
+USFM files `en.usfm`, `fr.usfm`, `es.usfm`, and `pt.usfm`; the `.script` files add the
 covers, colophon, and imposition. `usfm-booklet.script` (with `john-1-2.usfm`)
 is a two-chapter layout-test harness, not a release edition.
 
