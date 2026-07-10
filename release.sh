@@ -27,14 +27,14 @@ for name in "${SCRIPTS[@]}"; do
   assets+=("$REPO_DIR/$name.pdf")
 done
 
-echo "Rendering ${#SCRIPTS[@]} booklet(s) with texish ($TEXISH_DIR)…"
+echo "Rendering ${#SCRIPTS[@]} booklet(s) with texish ($TEXISH_DIR)..."
 ( cd "$TEXISH_DIR" && sbt -error "${runs[@]}" )
 
 for f in "${assets[@]}"; do
   [ -f "$f" ] || { echo "error: $f was not produced" >&2; exit 1; }
 done
 
-echo "Publishing release $VERSION…"
+echo "Publishing release ${VERSION}..."
 cd "$REPO_DIR"
 gh release delete "$VERSION" --yes --cleanup-tag 2>/dev/null || true
 gh release create "$VERSION" "${assets[@]}" \
