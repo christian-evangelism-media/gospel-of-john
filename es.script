@@ -4,8 +4,8 @@
 // pages read in order — an A6 pocket booklet folded from A5 paper.
 //
 // A framed front cover, a colophon, the full text of Juan 1–21, and a QR-code back cover. The text is the
-// Reina-Valera 1909 (public domain). \arrange booklet pads the run to a whole number of four-page sheets, so the
-// final sheet may carry one or two blank pages after the back cover.
+// Biblia Libre Latinoamericano (public domain), a modern paragraphed translation. \arrange booklet pads the run
+// to a whole number of four-page sheets, so the final sheet may carry one or two blank pages after the back cover.
 
 \use{usfm}
 
@@ -36,7 +36,7 @@
     \vskip 12pt
     \makebox[197pt][c]{\hrule width:70 ascent:1.4}
     \vfil
-    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font lmroman 10 italic pero éstas se han escrito para que creáis que Jesús es el Cristo, el Hijo de Dios, y para que creyendo, tengáis vida en su nombre.}}
+    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font lmroman 10 italic pero estas se han escrito para que crean que Jesús es el Cristo, el Hijo de Dios, y para que creyendo tengan vida en su nombre.}}
     \vskip 8pt
     \makebox[197pt][c]{\color{#333333}\font lmroman 9 regular \textsc{Juan 20:31}}
     \vfil
@@ -53,7 +53,7 @@
   \vfil
   \centerline{\font lmroman 10 regular Texto bíblico de la}
   \smallskip
-  \centerline{\font lmroman 10 regular \textsc{Reina-Valera 1909}}
+  \centerline{\font lmroman 10 regular \textsc{Biblia Libre Latinoamericano}}
   \smallskip
   \centerline{\font lmroman 9 italic que es de dominio público.}
   \vskip 24pt
@@ -89,7 +89,7 @@
 \vskip 22pt
 \centerline{\color{#4E6E8C}\font lmroman 13 regular christianevangelism.media}
 \vskip 26pt
-\centerline{\color{#333333}\font lmroman 10 italic “Ven y ve.”}
+\centerline{\color{#333333}\font lmroman 10 italic “Ven a ver.”}
 \smallskip
 \centerline{\color{#333333}\font lmroman 9 regular \textsc{Juan 1:46}}
 \vfill
