@@ -1,11 +1,11 @@
-// gospel-of-john (français) — l'Évangile de Jean complet, monté en livret de poche, avec couvertures. Chaque page
-// est A6 (105 x 148 mm); \arrange booklet impose les pages deux par deux, dans l'ordre de pliage d'un cahier
-// piqué, sur des feuilles A5 paysage (210 x 148 mm). Imprimez en recto-verso, pliez chaque feuille en son milieu,
-// emboîtez-les et agrafez : les pages se lisent dans l'ordre — un livret de poche A6 plié depuis du papier A5.
+// gospel-of-john (French) — the complete Gospel of John set as a pocket booklet, with covers. Each page is A6
+// (105 x 148 mm); \arrange booklet imposes the pages two-up, in saddle-stitch folding order, onto A5-landscape
+// (210 x 148 mm) sheets. Print double-sided, fold each sheet down the middle, nest and staple them, and the pages
+// read in order — an A6 pocket booklet folded from A5 paper.
 //
-// Une couverture encadrée, un colophon, le texte de Jean 1–21, et une quatrième de couverture à QR-code. Le texte
-// vient de la Bible Louis Segond 1910 (domaine public). \usfmintro 0 laisse de côté l'introduction de l'édition
-// source : seul le texte de l'Écriture est composé, comme dans le livret anglais.
+// A framed front cover, a colophon, the full text of Jean 1–21, and a QR-code back cover. The text is the Louis
+// Segond 1910 (public domain). \usfmintro 0 leaves out the source edition's introduction, so only the Scripture
+// text is composed, as in the English booklet.
 
 \use{usfm}
 
@@ -16,11 +16,11 @@
 
 \set usfmintro {0}
 
-// La couverture et le colophon ne portent pas de numéro de folio : un \footline vide masque le numéro de page que
-// document compose par défaut. Il est rétabli, et le compte remis à 1, à la première page de l'Écriture.
+// The cover and colophon carry no folio number: an empty \footline suppresses the centred page number document
+// prints by default. It is restored, and the count reset to 1, at the first page of Scripture.
 \def footline {}
 
-// ---- Première de couverture ----------------------------------------------------
+// ---- Front cover ---------------------------------------------------------------
 {
 \color{#4E6E8C}
 \vbox to:345 {
@@ -44,7 +44,7 @@
 }
 \eject
 
-// ---- Deuxième de couverture / colophon -----------------------------------------
+// ---- Inside front cover / colophon ---------------------------------------------
 {
 \vbox to:345 {
   \vfil
@@ -62,16 +62,16 @@
 }
 \eject
 
-// ---- Le texte de l'Évangile (folios numérotés 1–…) -----------------------------
+// ---- The Gospel text (folios numbered 1–…) -------------------------------------
 \set pageno {1}
 \def footline {\hss\font lmroman 10 regular \the\pageno\hss}
 \usfm{fr.usfm}
 \vfill\eject
 
-// Plus de numéro de folio pour la quatrième de couverture.
+// Back to no folio number for the back cover.
 \def footline {}
 
-// ---- Quatrième de couverture ---------------------------------------------------
+// ---- Back cover ----------------------------------------------------------------
 {
 \vskip 40pt
 \centerline{\color{#4E6E8C}\hrule width:60 ascent:1}
