@@ -1,0 +1,104 @@
+// gospel-of-john (Italian) — the complete Gospel of John set as a pocket booklet, with covers. Each page is A6
+// (105 x 148 mm); \arrange two-up-booklet imposes the pages two-up, in saddle-stitch folding order, onto A5-landscape
+// (210 x 148 mm) sheets. Print double-sided, fold each sheet down the middle, and nest and staple them, and the
+// pages read in order — an A6 pocket booklet folded from A5 paper.
+//
+// A framed front cover, a colophon, the full text of Giovanni 1–21, and a QR-code back cover. The text is the
+// Diodati 1885 (the classic Italian Protestant Bible, public domain), fully paragraphed with section headings. Its
+// dense study cross-references are suppressed for a Scripture-only pocket portion (see \usfmxref below). \arrange
+// two-up-booklet pads the run to a whole number of four-page sheets, placing any blanks just before the back cover
+// so the covers stay outermost.
+
+\use{usfm}
+
+\usehyphenation{it}
+
+// The Diodati carries a cross-reference note on almost every verse — study apparatus that would bury a pocket
+// portion under hundreds of footnotes. Redefining \usfmxref to expand to nothing drops the cross-references while
+// leaving the Scripture text, section headings, and any real translator footnotes in place.
+\def usfmxref c b {}
+
+\geometry paper:a6 top:10mm left:10mm right:10mm bottom:16mm footskip:5mm
+\arrange two-up-booklet
+
+// The front matter carries no folio number: an empty \footline suppresses the centred page number document prints
+// by default. It is restored, and the count reset to 1, at the first page of Scripture, so numbering runs 1, 2, 3…
+// through the text and stops again at the back cover — the front and back covers and the colophon stay unnumbered.
+\def footline {}
+
+// ---- Front cover ---------------------------------------------------------------
+// A framed typographic title page in the Scripture-portion tradition: the book's name large in a soft slate blue
+// (#4E6E8C), John's own thesis verse beneath, a hairline rule between. The frame is centred on the page with an
+// equal margin on every side, matched to the other editions.
+{
+\color{#4E6E8C}
+\vbox to:345 {
+  \vskip 17pt
+  \vfil
+  \centerline{\fbox{\vbox to:318 {
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\font lmroman 13 regular \textsc{Il Vangelo secondo}}
+    \vskip 16pt
+    \makebox[197pt][c]{\font lmroman 46 regular Giovanni}
+    \vskip 12pt
+    \makebox[197pt][c]{\hrule width:70 ascent:1.4}
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font lmroman 10 italic ma queste cose sono scritte, acciocchè voi crediate che Gesù è il Cristo, il Figliuol di Dio; ed acciocchè, credendo, abbiate vita nel nome suo.}}
+    \vskip 8pt
+    \makebox[197pt][c]{\color{#333333}\font lmroman 9 regular \textsc{Giovanni 20:31}}
+    \vfil
+  }}}
+  \vfil
+}
+}
+\eject
+
+// ---- Inside front cover / colophon ---------------------------------------------
+// Publication information, set quietly and centred low on the page: the Scripture text's source and the imprint.
+{
+\vbox to:345 {
+  \vfil
+  \centerline{\font lmroman 10 regular Testo biblico della}
+  \smallskip
+  \centerline{\font lmroman 10 regular \textsc{Bibbia Diodati 1885}}
+  \smallskip
+  \centerline{\font lmroman 9 italic che è di pubblico dominio.}
+  \vskip 24pt
+  \centerline{\color{#4E6E8C}\hrule width:50 ascent:0.8}
+  \vskip 24pt
+  \centerline{\font lmroman 10 regular christianevangelism.media}
+  \vskip 40pt
+}
+}
+\eject
+
+// ---- The Gospel text -----------------------------------------------------------
+// Numbering starts here: restore document's centred page number and reset the count to 1, so the first page of
+// Giovanni reads 1 rather than 3.
+\set pageno {1}
+\def footline {\hss\font lmroman 10 regular \the\pageno\hss}
+\usfm{it.usfm}
+\vfill\eject
+
+// Back to no folio number for the back cover.
+\def footline {}
+
+// ---- Back cover ----------------------------------------------------------------
+// The call to action: a QR code linking to the ministry site, a short invitation, and the imprint. The QR is drawn
+// as vector cells (crisp on the print), error-correction level Q so a fold crease or smudge across it still scans.
+{
+\vskip 40pt
+\centerline{\color{#4E6E8C}\hrule width:60 ascent:1}
+\vskip 16pt
+\centerline{\color{#333333}\font lmroman 13 regular \textsc{Leggi · Guarda · Condividi}}
+\vskip 22pt
+{\set leftskip {0 plus 1fil}\set rightskip {0 plus 1fil}\set parfillskip {0}\set parindent {0}\noindent\qrcode[cell:3pt quiet:4]{https://christianevangelism.media}\par}
+\vskip 22pt
+\centerline{\color{#4E6E8C}\font lmroman 13 regular christianevangelism.media}
+\vskip 26pt
+\centerline{\color{#333333}\font lmroman 10 italic “Vieni e vedi.”}
+\smallskip
+\centerline{\color{#333333}\font lmroman 9 regular \textsc{Giovanni 1:46}}
+\vfill
+}
+\eject
