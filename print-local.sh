@@ -18,7 +18,7 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEXISH_DIR="${TEXISH_DIR:-$HOME/dev/texish}"
 SHIFT="${DUPLEX_SHIFT:-4mm}"
-SCRIPTS=(en fr es pt zh)
+SCRIPTS=(en fr es pt zh-Hans)
 
 # Build a temporary copy of each script with the duplex correction injected into its \arrange
 # directive. The arrange line is the only non-comment use of two-up-booklet (comment mentions are
@@ -30,7 +30,7 @@ for name in "${SCRIPTS[@]}"; do
   tmp="$REPO_DIR/$name-print.script"
   content="$(cat "$REPO_DIR/$name.script")"
   printf '%s\n' "${content//\\arrange two-up-booklet/\\arrange two-up-booklet duplexshift:$SHIFT}" > "$tmp"
-  runs+=("texishCli/run $tmp")
+  runs+=("texishCli/run \"$tmp\"")
   temps+=("$tmp")
 done
 

@@ -7,7 +7,8 @@
 // Chinese Union Version (和合本, public domain), set in the bundled Noto Serif CJK Simplified face: the usfm package
 // takes its whole font family from \usfmfamily, so redefining it to cjksc and re-establishing the body font sets the
 // entire book — titles, headings, footnotes and all — in Chinese. Simplified characters serve the recent-immigrant
-// and student population; a Traditional cut would swap zh.usfm for the cmn-cu89t source. \arrange two-up-booklet pads
+// and student population; the Traditional edition (zh-Hant) is a separate script over the cmn-cu89t source.
+// \arrange two-up-booklet pads
 // the run to a whole number of four-page sheets, placing any blanks just before the back cover so the covers stay
 // outermost.
 
@@ -79,7 +80,7 @@
 // 约翰福音 reads 1 rather than 3.
 \set pageno {1}
 \def footline {\hss\font lmroman 10 regular \the\pageno\hss}
-\usfm{zh.usfm}
+\usfm{zh-Hans.usfm}
 \vfill\eject
 
 // Back to no folio number for the back cover.
