@@ -18,11 +18,16 @@ middle, nest and staple, and the pages read in order.
 | `pt.script`       | Bíblia Portuguesa Mundial (Portuguese) | `pt.pdf` |
 | `zh-Hans.script`  | Chinese Union Version (Chinese, Simplified) | `zh-Hans.pdf` |
 | `zh-Hant.script`  | Chinese Union Version (Chinese, Traditional) | `zh-Hant.pdf` |
+| `ar.script`       | Smith–Van Dyck (Arabic)           | `ar.pdf` |
 
-All six Scripture texts are in the public domain. The book text lives in the
-USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, `zh-Hans.usfm`, and `zh-Hant.usfm`; the `.script` files add the
+All seven Scripture texts are in the public domain. The book text lives in the
+USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, `zh-Hans.usfm`, `zh-Hant.usfm`, and `ar.usfm`; the `.script` files add the
 covers, colophon, and imposition. `usfm-booklet.script` (with `john-1-2.usfm`)
 is a two-chapter layout-test harness, not a release edition.
+
+The Arabic edition (`ar.script`) is right-bound: it sets the text right-to-left
+and imposes with `binding:right`, so the finished booklet binds on the right and
+opens from what a left-bound reader would call the back.
 
 ## Rendering
 
