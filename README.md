@@ -20,15 +20,19 @@ middle, nest and staple, and the pages read in order.
 | `zh-Hans.script`  | Chinese Union Version (Chinese, Simplified) | `zh-Hans.pdf` |
 | `zh-Hant.script`  | Chinese Union Version (Chinese, Traditional) | `zh-Hant.pdf` |
 | `ar.script`       | Smith–Van Dyck (Arabic)           | `ar.pdf` |
+| `he.script`       | Salkinson–Ginsburg (Hebrew)       | `he.pdf` |
 
-All eight Scripture texts are in the public domain. The book text lives in the
-USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, `it.usfm`, `zh-Hans.usfm`, `zh-Hant.usfm`, and `ar.usfm`; the `.script` files add the
+All nine Scripture texts are in the public domain. The book text lives in the
+USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, `it.usfm`, `zh-Hans.usfm`, `zh-Hant.usfm`, `ar.usfm`, and `he.usfm`; the `.script` files add the
 covers, colophon, and imposition. `usfm-booklet.script` (with `john-1-2.usfm`)
 is a two-chapter layout-test harness, not a release edition.
 
-The Arabic edition (`ar.script`) is right-bound: it sets the text right-to-left
-and imposes with `binding:right`, so the finished booklet binds on the right and
-opens from what a left-bound reader would call the back.
+The Arabic and Hebrew editions (`ar.script`, `he.script`) are right-bound: they
+set the text right-to-left and impose with `binding:right`, so the finished
+booklet binds on the right and opens from what a left-bound reader would call the
+back. The Hebrew (Salkinson–Ginsburg) is vocalized (niqqud); because its
+digital USFM carries no paragraph breaks, they were restored at the pericope
+boundaries of a standard paragraphed edition.
 
 ## Rendering
 

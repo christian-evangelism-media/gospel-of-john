@@ -1,0 +1,111 @@
+// gospel-of-john (Hebrew) — the complete Gospel of John set as a right-bound pocket booklet, with covers. Each page
+// is A6 (105 x 148 mm); \arrange two-up-booklet binding:right imposes the pages two-up, in saddle-stitch folding
+// order, onto A5-landscape (210 x 148 mm) sheets, mirrored so the finished booklet binds and opens on the right the
+// way a Hebrew book does. Print double-sided, fold each sheet down the middle, and nest and staple them.
+//
+// A framed front cover, a colophon, the full text of יוחנן 1–21, and a QR-code back cover. The text is the
+// Salkinson-Ginsburg Hebrew New Testament (public domain), set in the bundled Noto Serif Hebrew face: the usfm
+// package takes its whole font family from \usfmfamily, so redefining it to hebrew and re-establishing the body
+// font sets the entire book in Hebrew. \rtl makes the paragraphs read right to left with the bidirectional
+// algorithm ordering the Latin chapter-and-verse numbers, and binding:right mirrors the imposition to match.
+//
+// Following Hebrew print convention the furniture (title, headings, invitation) is set unpointed and only the
+// scripture — the body text and the two verses quoted on the covers — is vocalized (niqqud). The digital
+// Salkinson-Ginsburg USFM carries no paragraph breaks, so its paragraphs were restored at the pericope boundaries
+// of a standard paragraphed edition; the source's Hebrew-letter chapter and verse numbering is dropped in favour of
+// the drop-cap figure and Latin superscripts the other editions use.
+
+\use{usfm}
+
+// Set the Scripture font family to Hebrew, re-establish the body font, and switch to right-to-left paragraphs. A
+// generous baseline gives the pointed Hebrew (niqqud sits below the letters) room between lines.
+\def usfmfamily {hebrew}
+\font \usfmfamily 10 regular
+\set baselineskip {16}
+\rtl
+
+\geometry paper:a6 top:10mm left:10mm right:10mm bottom:16mm footskip:5mm
+\arrange two-up-booklet binding:right
+
+// The front matter carries no folio number: an empty \footline suppresses the centred page number document prints
+// by default. It is restored, and the count reset to 1, at the first page of Scripture, so numbering runs through
+// the text and stops again at the back cover — the front and back covers and the colophon stay unnumbered.
+\def footline {}
+
+// ---- Front cover ---------------------------------------------------------------
+// A framed typographic title page in the Scripture-portion tradition: the book's name large in a soft slate blue
+// (#4E6E8C), John's own thesis verse beneath, a hairline rule between. The chapter-and-verse digits are Latin,
+// ordered correctly beside the Hebrew book name by the bidirectional algorithm.
+{
+\color{#4E6E8C}
+\vbox to:345 {
+  \vskip 17pt
+  \vfil
+  \centerline{\fbox{\vbox to:318 {
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\font hebrew 13 regular הבשורה על־פי}
+    \vskip 16pt
+    \makebox[197pt][c]{\font hebrew 40 regular יוחנן}
+    \vskip 12pt
+    \makebox[197pt][c]{\hrule width:70 ascent:1.4}
+    \vfil
+    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font hebrew 10 regular אַךְ־אֵלֶּה נִכְתְּבוּ לְבַעֲבוּר תַּאֲמִינוּ כִּי יֵשׁוּעַ הוּא הַמָּשִׁיחַ בֶּן־הָאֱלֹהִים וּלְבַעֲבוּר יִהְיוּ לָכֶם חַיִּים עֵקֶב אֱמוּנַתְכֶם בִּשְׁמוֹ׃}}
+    \vskip 8pt
+    \makebox[197pt][c]{\color{#333333}\font hebrew 9 regular יוחנן 20:31}
+    \vfil
+  }}}
+  \vfil
+}
+}
+\eject
+
+// ---- Inside front cover / colophon ---------------------------------------------
+// Publication information, set quietly and centred low on the page: the Scripture text's source and the imprint. The
+// ministry URL is Latin, so \ltr sets it left-to-right within the otherwise right-to-left page.
+{
+\vbox to:345 {
+  \vfil
+  \centerline{\font hebrew 10 regular הטקסט המקראי מתוך}
+  \smallskip
+  \centerline{\font hebrew 10 regular תרגום זלקינסון-גינצבורג}
+  \smallskip
+  \centerline{\font hebrew 9 regular נחלת הכלל.}
+  \vskip 24pt
+  \centerline{\color{#4E6E8C}\hrule width:50 ascent:0.8}
+  \vskip 24pt
+  \centerline{\ltr\font lmroman 10 regular christianevangelism.media}
+  \vskip 40pt
+}
+}
+\eject
+
+// ---- The Gospel text -----------------------------------------------------------
+// Numbering starts here: restore document's centred page number and reset the count to 1, so the first page of the
+// Gospel reads 1 rather than 3.
+\set pageno {1}
+\def footline {\hss\ltr\font lmroman 10 regular \the\pageno\hss}
+\usfm{he.usfm}
+\vfill\eject
+
+// Back to no folio number for the back cover.
+\def footline {}
+
+// ---- Back cover ----------------------------------------------------------------
+// The call to action: a QR code linking to the ministry site, a short invitation, and the imprint. The QR is drawn
+// as vector cells (crisp on the print), error-correction level Q so a fold crease or smudge across it still scans.
+{
+\vskip 40pt
+\centerline{\color{#4E6E8C}\hrule width:60 ascent:1}
+\vskip 16pt
+\centerline{\color{#333333}\font hebrew 13 regular קרא · צפה · שתף}
+\vskip 22pt
+{\set leftskip {0 plus 1fil}\set rightskip {0 plus 1fil}\set parfillskip {0}\set parindent {0}\noindent\qrcode[cell:3pt quiet:4]{https://christianevangelism.media}\par}
+\vskip 22pt
+\centerline{\color{#4E6E8C}\ltr\font lmroman 13 regular christianevangelism.media}
+\vskip 26pt
+\centerline{\color{#333333}\font hebrew 10 regular «בֹּא וּרְאֵה»}
+\smallskip
+\centerline{\color{#333333}\font hebrew 9 regular יוחנן 1:46}
+\vfill
+}
+\eject

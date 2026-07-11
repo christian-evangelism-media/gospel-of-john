@@ -18,7 +18,7 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEXISH_DIR="${TEXISH_DIR:-$HOME/dev/texish}"
 SHIFT="${DUPLEX_SHIFT:-4mm}"
-SCRIPTS=(en fr es pt it zh-Hans zh-Hant ar)
+SCRIPTS=(en fr es pt it zh-Hans zh-Hant ar he)
 
 # Build a temporary copy of each script with the duplex correction injected into its \arrange
 # directive. The arrange line is the only non-comment use of two-up-booklet (comment mentions are
