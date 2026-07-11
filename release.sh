@@ -18,7 +18,7 @@ VERSION="$(date +%Y.%m.%d)"
 
 # Each name renders <name>.script to <name>.pdf and ships as a release asset.
 # Add a language edition by adding its name here.
-SCRIPTS=(en fr es pt zh-Hans)
+SCRIPTS=(en fr es pt zh-Hans zh-Hant)
 
 runs=()
 assets=()

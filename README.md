@@ -17,9 +17,10 @@ middle, nest and staple, and the pages read in order.
 | `es.script`       | Biblia Libre Latinoamericano (Spanish) | `es.pdf` |
 | `pt.script`       | Bíblia Portuguesa Mundial (Portuguese) | `pt.pdf` |
 | `zh-Hans.script`  | Chinese Union Version (Chinese, Simplified) | `zh-Hans.pdf` |
+| `zh-Hant.script`  | Chinese Union Version (Chinese, Traditional) | `zh-Hant.pdf` |
 
-All five Scripture texts are in the public domain. The book text lives in the
-USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, and `zh-Hans.usfm`; the `.script` files add the
+All six Scripture texts are in the public domain. The book text lives in the
+USFM files `en.usfm`, `fr.usfm`, `es.usfm`, `pt.usfm`, `zh-Hans.usfm`, and `zh-Hant.usfm`; the `.script` files add the
 covers, colophon, and imposition. `usfm-booklet.script` (with `john-1-2.usfm`)
 is a two-chapter layout-test harness, not a release edition.
 
