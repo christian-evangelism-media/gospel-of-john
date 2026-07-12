@@ -13,7 +13,7 @@
 
 \usehyphenation{en-us}
 
-\geometry paper:a6 top:10mm left:10mm right:10mm bottom:16mm footskip:5mm
+\geometry paper:a6 top:5mm left:5mm right:5mm bottom:8mm footskip:3mm
 \arrange two-up-booklet
 
 // The front matter carries no folio number: an empty \footline suppresses the centred page number document prints
@@ -23,30 +23,14 @@
 \def footline {}
 
 // ---- Front cover ---------------------------------------------------------------
-// A framed typographic title page in the Scripture-portion tradition: the book's name large in a soft slate blue
-// (#4E6E8C), John's own thesis verse beneath, a hairline rule between. The frame is centred on the page with an
-// equal margin on every side. \centerline centres it left-to-right; it sits inside a text-height \vbox whose \vfil
-// glue above and below centres it top-to-bottom, and a fixed \vskip on top cancels the extra depth the footer-
-// driven bottom page-margin would otherwise add over the top margin — so the frame is equidistant from all four
-// paper edges, not just the two sides.
+// A full-page cover illustration for the English edition — the title, thesis verse (John 20:31) and artwork are
+// composed together in cover-en.png. It is centred on the page: \centerline centres it left-to-right, and the
+// text-height \vbox with \vfil above and below centres it top-to-bottom. Set to the full text width, so with the
+// minimum page margins it nearly fills the page.
 {
-\color{#4E6E8C}
-\vbox to:345 {
-  \vskip 17pt
+\vbox to:382 {
   \vfil
-  \centerline{\fbox{\vbox to:318 {
-    \vfil
-    \makebox[197pt][c]{\color{#333333}\font lmroman 13 regular \textsc{The Gospel According to}}
-    \vskip 16pt
-    \makebox[197pt][c]{\font lmroman 64 regular John}
-    \vskip 12pt
-    \makebox[197pt][c]{\hrule width:70 ascent:1.4}
-    \vfil
-    \makebox[197pt][c]{\color{#333333}\parbox{176pt}{\centering\font lmroman 10 italic but these are written that you may believe that Jesus is the Christ, the Son of God, and that by believing you may have life in His name.}}
-    \vskip 8pt
-    \makebox[197pt][c]{\color{#333333}\font lmroman 9 regular \textsc{John 20:31}}
-    \vfil
-  }}}
+  \centerline{\includegraphics[width=\linewidth]{cover-en.png}}
   \vfil
 }
 }
