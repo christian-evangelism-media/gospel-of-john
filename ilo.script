@@ -1,0 +1,73 @@
+// gospel-of-john, Ilocano edition (ilo) — the complete Gospel of John set as an A6 pocket booklet.
+// Scripture text: "Teksto ti Biblia" (github.com/nasantuan-a-biblia/teksto-ti-biblia), a CC0 public-domain
+// Ilocano translation, converted from its markdown to ilo.usfm by md2usfm.py.
+//
+// Unlike the English and French editions (which use pre-composed cover images with baked-in title text),
+// this edition typesets the title over a plain background photograph (cover-bg.png) so the same artwork can
+// carry a title in any language. \arrange two-up-booklet imposes the A6 pages onto A5-landscape sheets.
+
+\use{usfm}
+
+\geometry paper:a6 top:5mm left:5mm right:5mm bottom:8mm footskip:3mm
+\arrange two-up-booklet
+
+\def footline {}
+
+// ---- Front cover ---------------------------------------------------------------
+// A full-page background photograph with the title typeset over the open sky. The image is drawn at the full
+// text width, then each title line is laid over it: \llap anchors a full-width, horizontally centred line at
+// the image's right edge (so it spans the whole width), \smash gives it zero height so it does not disturb the
+// image box, and \raise lifts it to its place up in the bright sky. The lines are issued after the image, so
+// they paint on top of it.
+{
+\vbox to:382 {
+  \vfil
+  \hbox to:269{\includegraphics[width=\linewidth]{cover-bg.png}\llap{\smash{\raise 336 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 15 regular TI EBANGHELIO NI\hss}}}\llap{\smash{\raise 286 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 44 bold JUAN\hss}}}\llap{\smash{\raise 250 \hbox to:269{\hss\color{#4E6E8C}\hrule width:44 ascent:0.8\hss}}}\llap{\smash{\raise 224 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 12 regular TAPNO MAMATIKAYO\hss}}}\llap{\smash{\raise 206 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 9 regular (Juan 20:31)\hss}}}}
+  \vfil
+}
+}
+\eject
+
+// ---- Inside front cover / colophon ---------------------------------------------
+{
+\vbox to:345 {
+  \vfil
+  \centerline{\font lmroman 10 regular Ti teksto ti Kasuratan ket naggapu iti}
+  \smallskip
+  \centerline{\font lmroman 10 regular \textsc{Teksto ti Biblia}}
+  \smallskip
+  \centerline{\font lmroman 9 italic nga adda iti publiko a dominio.}
+  \vskip 24pt
+  \centerline{\color{#4E6E8C}\hrule width:50 ascent:0.8}
+  \vskip 24pt
+  \centerline{\font lmroman 10 regular christianevangelism.media}
+  \vskip 40pt
+}
+}
+\eject
+
+// ---- The Gospel text -----------------------------------------------------------
+\set pageno {1}
+\def footline {\hss\font lmroman 10 regular \the\pageno\hss}
+\usfm{ilo.usfm}
+\vfill\eject
+
+\def footline {}
+
+// ---- Back cover ----------------------------------------------------------------
+{
+\vskip 40pt
+\centerline{\color{#4E6E8C}\hrule width:60 ascent:1}
+\vskip 16pt
+\centerline{\color{#333333}\font lmroman 13 regular \textsc{Basaem · Buyaem · Iranudmo}}
+\vskip 22pt
+{\set leftskip {0 plus 1fil}\set rightskip {0 plus 1fil}\set parfillskip {0}\set parindent {0}\noindent\qrcode[cell:3pt quiet:4]{https://christianevangelism.media}\par}
+\vskip 22pt
+\centerline{\color{#4E6E8C}\font lmroman 13 regular christianevangelism.media}
+\vskip 26pt
+\centerline{\color{#333333}\font lmroman 10 italic “Umayka ket kitaem.”}
+\smallskip
+\centerline{\color{#333333}\font lmroman 9 regular \textsc{Juan 1:46}}
+\vfill
+}
+\eject
