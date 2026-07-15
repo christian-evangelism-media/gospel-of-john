@@ -118,10 +118,28 @@ def build_header(book_id, full_title, name, abbr):
     return header
 
 
-def convert(src_dir, book_id, name, abbr, figures=False):
+def load_captions(path):
+    """Read a `N|caption` per-line file into a {chapter_number: caption} dict.
+
+    Blank lines and lines beginning with `#` are ignored, so the file can carry
+    comments. A caption feeds the `\\fig` illustration marker for that chapter.
+    """
+    captions = {}
+    with open(path, encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            num, _, text = line.partition('|')
+            captions[int(num)] = text.strip()
+    return captions
+
+
+def convert(src_dir, book_id, name, abbr, figures=False, captions=None):
     files = sorted(glob.glob(os.path.join(src_dir, '[0-9][0-9].md')))
     if not files:
         sys.exit(f'no NN.md chapter files found in {src_dir}')
+    captions = captions or {}
 
     out = []
     header_done = False
@@ -160,7 +178,8 @@ def convert(src_dir, book_id, name, abbr, figures=False):
                 num = int(m.group(1))
                 out.append(f'\\c {num}')
                 if figures:
-                    out.append(f'\\fig |src="ch{num:02d}.png" size="col"\\fig*')
+                    cap = captions.get(num, '')
+                    out.append(f'\\fig {cap}|src="ch{num:02d}.png" size="col"\\fig*')
                 i += 2
                 continue
 
@@ -192,10 +211,13 @@ def main():
     ap.add_argument('--out', required=True, help='output .usfm path')
     ap.add_argument('--figures', action='store_true',
                     help='insert a \\fig chNN.png chapter image after each \\c')
+    ap.add_argument('--captions',
+                    help='a `N|caption` per-line file of chapter-image captions')
     args = ap.parse_args()
 
+    captions = load_captions(os.path.expanduser(args.captions)) if args.captions else {}
     usfm = convert(os.path.expanduser(args.src), args.id, args.name,
-                   args.abbr, figures=args.figures)
+                   args.abbr, figures=args.figures, captions=captions)
     with open(os.path.expanduser(args.out), 'w', encoding='utf-8') as f:
         f.write(usfm)
     print(f'wrote {args.out}')

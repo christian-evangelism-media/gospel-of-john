@@ -1,0 +1,24 @@
+# Chapter-image captions for the Ilocano edition, one per chapter (N|caption).
+# Each is drawn from the chapter's own wording in the Teksto ti Biblia text,
+# matching the scene shown and the English/French editions' captions.
+1|Nagbalin a lasag ti Sao ket nagnaed kadakami
+2|Ti umuna kadagiti pagilasinan, idiay Cana iti Galilea
+3|Immasideg ni Nicodemo ken ni Jesus iti rabii
+4|Ti sibibiag a danum iti bubon ni Jacob
+5|Alaem ti pagiddaam, ket magnaka
+6|Siak ti tinapay ti biag
+7|Agayusto dagiti karayan ti sibibiag a danum
+8|Siak ti silaw ti lubong
+9|Nupay bulsek idi, ita makitkitakon
+10|Siak ti naimbag a pastor
+11|Siak ti panagungar ken ti biag
+12|Pinulotan ni Maria ni Jesus idiay Betania
+13|Binugguan ni Jesus dagiti saka dagiti adalanna
+14|Iti balay ni Amak ket adu ti siled
+15|Siak ti pudno a puon ti ubas
+16|Agbalinto a rag-o ti ladingityo
+17|Intangadna dagiti matana idiay langit ket nagkararag
+18|Immayda nga addaan kadagiti parol, pagsilawan, ken armas
+19|Sadiay nga inlansada iti krus, ken kaduana ti dua pay
+20|Naikkaten ti bato, ket adda sadiay dagiti lienso a lupot
+21|Umaykayo, agmerienda
