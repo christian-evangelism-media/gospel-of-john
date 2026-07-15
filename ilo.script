@@ -14,15 +14,36 @@
 \def footline {}
 
 // ---- Front cover ---------------------------------------------------------------
-// A full-page background photograph with the title typeset over the open sky. The image is drawn at the full
-// text width, then each title line is laid over it: \llap anchors a full-width, horizontally centred line at
-// the image's right edge (so it spans the whole width), \smash gives it zero height so it does not disturb the
-// image box, and \raise lifts it to its place up in the bright sky. The lines are issued after the image, so
-// they paint on top of it.
+// The title is typeset over the open sky of the background photograph (cover-bg.png, a plain Sea-of-Galilee
+// sunrise with no baked-in text), so the same artwork carries a title in any language — an Ilocano counterpart
+// to the pre-composed English and French covers, following the romans project's technique. Everything sits
+// inside one \picture (origin bottom-left, y-up): the photo fills the text area (95x134.5mm — the A6 page inset
+// by its 5mm side margins, so the cover stays clear of a borderless-printing edge), then each title line is
+// laid over the bright upper sky. JUAN is set in Cinzel — an all-capitals titling serif in the Trajan
+// tradition — over EB Garamond label lines (a humanist book roman); the two faces contrast in texture while
+// both set in capitals, with size and tracking giving the hierarchy. The ink matches the English cover: navy
+// for the title and reference, a warm brown for the thesis line, amber-gold for the rules.
+\def navy {#0E2438}
+\def warm {#463726}
+\def gold {#B08A3E}
+
+// \track{<kern>}{<text>} letterspaces a run: \for walks the string a code point at a time, setting each glyph
+// followed by a fixed kern (skipping the last, so a line is not padded on its right).
+\def track amt text {\for\ch{\text}{\ch\if{\forloop.last}\else\kern \amt\fi}}
+
 {
-\vbox to:382 {
+\vbox to:135mm {
   \vfil
-  \hbox to:269{\includegraphics[width=\linewidth]{cover-bg.png}\llap{\smash{\raise 336 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 15 regular TI EBANGHELIO NI\hss}}}\llap{\smash{\raise 286 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 44 bold JUAN\hss}}}\llap{\smash{\raise 250 \hbox to:269{\hss\color{#4E6E8C}\hrule width:44 ascent:0.8\hss}}}\llap{\smash{\raise 224 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 12 regular TAPNO MAMATIKAYO\hss}}}\llap{\smash{\raise 206 \hbox to:269{\hss\color{#2b2b2b}\font lmroman 9 regular (Juan 20:31)\hss}}}}
+  \hbox to:95mm {\picture width:95mm height:134.5mm {
+    \at anchor:center {47.5mm 67.25mm}{\includegraphics[width=95mm]{cover-bg.png}}
+
+    \at anchor:center {47.5mm 116mm}{\color{\navy}\typeface{ebgaramond}\fontsize{13}\track{1.6pt}{TI EBANGHELIO NI}}
+    \at anchor:center {47.5mm 110mm}{\color{\gold}\hrule width:52 ascent:0.6}
+    \at anchor:center {47.5mm 97mm}{\color{\navy}\typeface{cinzel}\fontsize{46}\track{3pt}{JUAN}}
+    \at anchor:center {47.5mm 83mm}{\color{\warm}\typeface{ebgaramond}\fontsize{11}\track{1.3pt}{TAPNO MAMATIKAYO}}
+    \at anchor:center {47.5mm 76.5mm}{\color{\navy}\typeface{ebgaramond}\fontsize{9}\track{0.8pt}{JUAN 20:31}}
+    \at anchor:center {47.5mm 71mm}{\color{\gold}\hrule width:14 ascent:0.6}
+  }}
   \vfil
 }
 }
